@@ -1,7 +1,17 @@
-# stat400-sets
+# STAT400 Datasets
 
-Data Descriptions:
+## Data Descriptions
+
+### Poisson Process
 
  - Blotter.csv: https://afd.calpoly.edu/police/campus-reports/logs
  - Crashes.csv: https://tims.berkeley.edu/help/SWITRS.php#Codebook
  - Earthquakes.csv: https://earthquake.usgs.gov/earthquakes/feed/v1.0/csv.php
+
+### Bivariate Normal
+
+### Benford's Law
+
+### LogNormal
+
+### Survival (Actuarial Data)
