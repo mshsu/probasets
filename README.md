@@ -10,8 +10,8 @@
 
 ### Bivariate Normal
 
-### Benford's Law
-
 ### LogNormal
+
+### Benford's Law
 
 ### Survival (Actuarial Data)
