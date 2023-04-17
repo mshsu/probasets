@@ -16,9 +16,19 @@
 
 ### Benford's Law
 
- - Stocks.csv: https://markets.businessinsider.com/index/components/
  - Population.csv: https://www2.census.gov/programs-surveys/popest/technical-documentation/file-layouts/2020-2022/CO-EST2022-ALLDATA.pdf
+ - Stocks.csv: https://markets.businessinsider.com/index/components/
 
 ### Actuarial Data
 
  - Hospitals2.csv: https://microsoft.github.io/r-server-hospital-length-of-stay/input_data.html
+
+## Attribution:
+
+ - Blotter.csv: From California Polytechnic State University, SLO
+ - Crashes.csv: From the Berkeley Transportation Injury Mapping System (TIMS)
+ - Earthquakes.csv: From the US Geological Survey (USGS)
+ - Hospitals1.csv: From the Center for Medicare and Medicaid Services (CMS)
+ - Hospitals2.csv: From Microsoft Machine Learning Services
+ - Population.csv: From the US Census Bureau
+ - Stocks.csv: From Business Insider
