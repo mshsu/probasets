@@ -10,9 +10,9 @@
 
 ### Bivariate Normal
 
- - Hospitals.csv: https://data.cms.gov/sites/default/files/2022-11/COVID-19%20Nursing%20Home%20Data%20Dictionary%2011.20.2022.pdf
-
 ### LogNormal
+
+ - Hospitals.csv: https://data.cms.gov/sites/default/files/2022-11/COVID-19%20Nursing%20Home%20Data%20Dictionary%2011.20.2022.pdf
 
 ### Benford's Law
 
