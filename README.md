@@ -10,6 +10,8 @@
 
 ### Bivariate Normal
 
+ - Hospitals.csv: https://data.cms.gov/sites/default/files/2022-11/COVID-19%20Nursing%20Home%20Data%20Dictionary%2011.20.2022.pdf
+
 ### LogNormal
 
 ### Benford's Law
@@ -17,4 +19,4 @@
  - Stocks.csv: https://markets.businessinsider.com/index/components/
  - Population.csv: https://www2.census.gov/programs-surveys/popest/technical-documentation/file-layouts/2020-2022/CO-EST2022-ALLDATA.pdf
 
-### Survival (Actuarial Data)
+### Actuarial Data
