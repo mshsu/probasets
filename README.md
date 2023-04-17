@@ -14,4 +14,6 @@
 
 ### Benford's Law
 
+ - Stocks.csv: https://markets.businessinsider.com/index/components/
+
 ### Survival (Actuarial Data)
