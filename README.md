@@ -4,7 +4,7 @@
 
 ### Poisson Process
 
- - **Blotter.csv**: Activity logs, summarizing incidents reported to Cal Poly University Police over the past 60 days. An updated log is generally posted by 9:00 AM the following day. This data was scraped on 4/15/20223 *[Source](https://afd.calpoly.edu/police/campus-reports/logs)*
+ - **Blotter.csv**: Activity logs, summarizing incidents reported to Cal Poly University Police over the past 60 days. An updated log is generally posted by 9:00 AM the following day. This data was scraped on 4/15/2023. *[Source](https://afd.calpoly.edu/police/campus-reports/logs)*
  - **Crashes.csv**: SLO County vehicle accidents data. Contains data reported from 2/2/2013 to 2/15/2021. *[Source](https://tims.berkeley.edu/) (signup needed), [Codebook](https://tims.berkeley.edu/help/SWITRS.php#Codebook)*
  - **Earthquakes.csv**: Real-time earthquakes data from the past 30 days, updated every minute. This dataset was downloaded 3/10/2023. *[Source](https://earthquake.usgs.gov/earthquakes/feed/v1.0/csv.php)*
 
