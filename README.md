@@ -4,8 +4,8 @@
 
 ### Poisson Process
 
- - **Blotter.csv**: Activity logs, summarizing incidents reported to Cal Poly University Police over the past sixty days, appear with the most recent log at the top of the list. An updated log is generally posted by 9:00 AM the following day. This data was scraped on 4/15/2022. *[Source](https://afd.calpoly.edu/police/campus-reports/logs)*
- - **Crashes.csv**: The Transportation Injury Mapping System (TIMS) has been developed over the past ten-plus years by SafeTREC to provide quick, easy and free access to California crash data, the Statewide Integrated Traffic Records System (SWITRS), that has been geo-coded by SafeTREC to make it easy to map crashes. Contains data reported from 2/2/2013 to 2/15/2021. *[Source](https://tims.berkeley.edu/) (signup needed), [Codebook](https://tims.berkeley.edu/help/SWITRS.php#Codebook)*
+ - **Blotter.csv**: Activity logs, summarizing incidents reported to Cal Poly University Police over the past sixty days. An updated log is generally posted by 9:00 AM the following day. This data was scraped on 4/15/2022. *[Source](https://afd.calpoly.edu/police/campus-reports/logs)*
+ - **Crashes.csv**: SLO County vehicle accidents data. Contains data reported from 2/2/2013 to 2/15/2021. *[Source](https://tims.berkeley.edu/) (signup needed), [Codebook](https://tims.berkeley.edu/help/SWITRS.php#Codebook)*
  - **Earthquakes.csv**: Real-time earthquakes data from the past 30 days, updated every minute. This dataset was downloaded 3/10/2023. *[Source](https://earthquake.usgs.gov/earthquakes/feed/v1.0/csv.php)*
 
 ### Bivariate Normal
