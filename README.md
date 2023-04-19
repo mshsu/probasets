@@ -11,8 +11,9 @@
 ### Bivariate Normal
 
  - **AirQuality.csv**: EPA Air Quality System (AQS) annual aggregate data by county, for 2022. *[Source](https://aqs.epa.gov/aqsweb/airdata/download_files.html#Annual), [Codebook](https://aqs.epa.gov/aqsweb/airdata/FileFormats.html#_annual_summary_files)*
+ - **BodyMeasures.csv**: Laboratory body measurements from 2017-2018. *[Source](https://wwwn.cdc.gov/nchs/nhanes/search/datapage.aspx?Component=Examination&CycleBeginYear=2017), [Codebook](https://wwwn.cdc.gov/Nchs/Nhanes/2017-2018/BMX_J.htm)*
 
-### LogNormal
+### Lognormal
 
  - **Cities.csv**: Basic data on US cities, such as population and median income. *[Source](https://simplemaps.com/data/us-cities)*
  - **COVIDHospitals.csv**: Data on COVID inpatient hospital utilization, as reported on 3/7/2021. *[Source](https://data.cms.gov/covid-19/covid-19-nursing-home-data), [Codebook](https://data.cms.gov/sites/default/files/2022-11/COVID-19%20Nursing%20Home%20Data%20Dictionary%2011.20.2022.pdf)*
@@ -33,6 +34,7 @@
 
  - AirQuality.csv: From the US Environmental Protection Agency (EPA)
  - Blotter.csv: From California Polytechnic State University, San Luis Obispo
+ - BodyMeasures.csv: From the National Center for Health Statistics (NHANES) 
  - Cities.csv: From SimpleMaps
  - COVIDHospitals.csv: From the Center for Medicare and Medicaid Services (CMS)
  - Crashes.csv: From the Berkeley Transportation Injury Mapping System (TIMS)
