@@ -16,6 +16,7 @@
 
  - Cities.csv: https://simplemaps.com/data/us-cities
  - COVIDHospitals.csv: https://data.cms.gov/sites/default/files/2022-11/COVID-19%20Nursing%20Home%20Data%20Dictionary%2011.20.2022.pdf
+ - Wildfires.csv: https://www.fire.ca.gov/incidents
 
 ### Benford's Law
 
@@ -40,3 +41,4 @@
  - LengthOfStay.csv: From Microsoft Machine Learning Services
  - Population.csv: From the US Census Bureau
  - Stocks.csv: From Business Insider
+ - Wildfires: From the California Department of Forestry and Fire Protection (CAL FIRE)
