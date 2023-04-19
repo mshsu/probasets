@@ -14,6 +14,7 @@
 
 ### LogNormal
 
+ - Cities.csv: https://simplemaps.com/data/us-cities
  - COVIDHospitals.csv: https://data.cms.gov/sites/default/files/2022-11/COVID-19%20Nursing%20Home%20Data%20Dictionary%2011.20.2022.pdf
 
 ### Benford's Law
@@ -31,6 +32,7 @@
 
  - AirQuality.csv: From the US Environmental Protection Agency (EPA)
  - Blotter.csv: From California Polytechnic State University, San Luis Obispo
+ - Cities.csv: From SimpleMaps
  - COVIDHospitals.csv: From the Center for Medicare and Medicaid Services (CMS)
  - Crashes.csv: From the Berkeley Transportation Injury Mapping System (TIMS)
  - Earthquakes.csv: From the US Geological Survey (USGS)
