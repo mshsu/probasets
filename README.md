@@ -32,15 +32,15 @@
 
 ## Attribution:
 
- - AirQuality.csv: From the US Environmental Protection Agency (EPA)
- - Blotter.csv: From California Polytechnic State University, San Luis Obispo
- - BodyMeasures.csv: From the National Health and Nutrition Examination Survey (NHANES) 
- - Cities.csv: From SimpleMaps
- - COVIDHospitals.csv: From the Center for Medicare and Medicaid Services (CMS)
- - Crashes.csv: From the Berkeley Transportation Injury Mapping System (TIMS)
- - Earthquakes.csv: From the US Geological Survey (USGS)
- - Insurance.csv: From the Center for Medicare and Medicaid Services (CMS)
- - LengthOfStay.csv: From Microsoft Machine Learning Services
- - Population.csv: From the US Census Bureau
- - Stocks.csv: From Business Insider
- - Wildfires: From the California Department of Forestry and Fire Protection (CAL FIRE)
+ - **AirQuality.csv**: From the US Environmental Protection Agency (EPA)
+ - **Blotter.csv**: From California Polytechnic State University, San Luis Obispo
+ - **BodyMeasures.csv**: From the National Health and Nutrition Examination Survey (NHANES) 
+ - **Cities.csv**: From SimpleMaps
+ - **COVIDHospitals.csv**: From the Center for Medicare and Medicaid Services (CMS)
+ - **Crashes.csv**: From the Berkeley Transportation Injury Mapping System (TIMS)
+ - **Earthquakes.csv**: From the US Geological Survey (USGS)
+ - **Insurance.csv**: From the Center for Medicare and Medicaid Services (CMS)
+ - **LengthOfStay.csv**: From Microsoft Machine Learning Services
+ - **Population.csv**: From the US Census Bureau
+ - **Stocks.csv**: From Business Insider
+ - **Wildfires.csv**: From the California Department of Forestry and Fire Protection (CAL FIRE)
