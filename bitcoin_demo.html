@@ -14602,7 +14602,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[1]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[35]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-python"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
@@ -14631,7 +14631,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[2]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[36]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-python"><pre><span></span><span class="n">btc</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">"https://mshsu.github.io/probasets/data/Bitcoin.csv"</span><span class="p">)</span>
@@ -14653,13 +14653,13 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-OutputArea-child">
 
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[2]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[36]:</div>
 
 
 
 <div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html">
 
-  <div id="df-8983a2b6-7cdd-4c63-816e-cec910eaac0a">
+  <div id="df-27c463de-f45d-45cf-bc97-b6713d0e6b35">
     <div class="colab-df-container">
       <div>
 <style scoped>
@@ -14802,7 +14802,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
   </tbody>
 </table>
 </div>
-      <button class="colab-df-convert" onclick="convertToInteractive('df-8983a2b6-7cdd-4c63-816e-cec910eaac0a')"
+      <button class="colab-df-convert" onclick="convertToInteractive('df-27c463de-f45d-45cf-bc97-b6713d0e6b35')"
               title="Convert this dataframe to an interactive table."
               style="display:none;">
         
@@ -14853,12 +14853,12 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 
       <script>
         const buttonEl =
-          document.querySelector('#df-8983a2b6-7cdd-4c63-816e-cec910eaac0a button.colab-df-convert');
+          document.querySelector('#df-27c463de-f45d-45cf-bc97-b6713d0e6b35 button.colab-df-convert');
         buttonEl.style.display =
           google.colab.kernel.accessAllowed ? 'block' : 'none';
 
         async function convertToInteractive(key) {
-          const element = document.querySelector('#df-8983a2b6-7cdd-4c63-816e-cec910eaac0a');
+          const element = document.querySelector('#df-27c463de-f45d-45cf-bc97-b6713d0e6b35');
           const dataTable =
             await google.colab.kernel.invokeFunction('convertToInteractive',
                                                      [key], {});
@@ -14902,11 +14902,11 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[3]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[44]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-python"><pre><span></span><span class="n">obs</span> <span class="o">=</span> <span class="n">btc</span><span class="p">[</span><span class="s1">'input_value'</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
-<span class="n">obs</span> <span class="o">=</span> <span class="n">obs</span><span class="p">[</span><span class="n">obs</span> <span class="o">!=</span> <span class="s2">"n"</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+<span class="n">obs</span> <span class="o">=</span> <span class="n">obs</span><span class="p">[(</span><span class="n">obs</span> <span class="o">!=</span> <span class="s2">"n"</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">obs</span> <span class="o">!=</span> <span class="s2">"0"</span><span class="p">)]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
 <span class="n">obs</span> <span class="o">=</span> <span class="n">obs</span><span class="o">.</span><span class="n">value_counts</span><span class="p">(</span><span class="n">normalize</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">sort_index</span><span class="p">()</span><span class="o">.</span><span class="n">to_frame</span><span class="p">()</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">names</span><span class="o">=</span><span class="s2">"num"</span><span class="p">)</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s2">"input_value"</span><span class="p">:</span> <span class="s2">"observed"</span><span class="p">})</span>
 <span class="n">obs</span>
 </pre></div>
@@ -14926,13 +14926,13 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-OutputArea-child">
 
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[3]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[44]:</div>
 
 
 
 <div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html">
 
-  <div id="df-859aa669-5121-4a68-9e7f-e3a499fbb590">
+  <div id="df-e785a113-8785-42af-8d3a-981aaba46ba5">
     <div class="colab-df-container">
       <div>
 <style scoped>
@@ -15005,7 +15005,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
   </tbody>
 </table>
 </div>
-      <button class="colab-df-convert" onclick="convertToInteractive('df-859aa669-5121-4a68-9e7f-e3a499fbb590')"
+      <button class="colab-df-convert" onclick="convertToInteractive('df-e785a113-8785-42af-8d3a-981aaba46ba5')"
               title="Convert this dataframe to an interactive table."
               style="display:none;">
         
@@ -15056,12 +15056,12 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 
       <script>
         const buttonEl =
-          document.querySelector('#df-859aa669-5121-4a68-9e7f-e3a499fbb590 button.colab-df-convert');
+          document.querySelector('#df-e785a113-8785-42af-8d3a-981aaba46ba5 button.colab-df-convert');
         buttonEl.style.display =
           google.colab.kernel.accessAllowed ? 'block' : 'none';
 
         async function convertToInteractive(key) {
-          const element = document.querySelector('#df-859aa669-5121-4a68-9e7f-e3a499fbb590');
+          const element = document.querySelector('#df-e785a113-8785-42af-8d3a-981aaba46ba5');
           const dataTable =
             await google.colab.kernel.invokeFunction('convertToInteractive',
                                                      [key], {});
@@ -15105,7 +15105,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[4]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[38]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-python"><pre><span></span><span class="n">d</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
@@ -15129,13 +15129,13 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-OutputArea-child">
 
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[4]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[38]:</div>
 
 
 
 <div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html">
 
-  <div id="df-ec5b7eeb-047d-49dd-ac62-fe2426037e82">
+  <div id="df-2929b010-c8c5-4426-9c86-aad3898b15b3">
     <div class="colab-df-container">
       <div>
 <style scoped>
@@ -15208,7 +15208,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
   </tbody>
 </table>
 </div>
-      <button class="colab-df-convert" onclick="convertToInteractive('df-ec5b7eeb-047d-49dd-ac62-fe2426037e82')"
+      <button class="colab-df-convert" onclick="convertToInteractive('df-2929b010-c8c5-4426-9c86-aad3898b15b3')"
               title="Convert this dataframe to an interactive table."
               style="display:none;">
         
@@ -15259,12 +15259,12 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 
       <script>
         const buttonEl =
-          document.querySelector('#df-ec5b7eeb-047d-49dd-ac62-fe2426037e82 button.colab-df-convert');
+          document.querySelector('#df-2929b010-c8c5-4426-9c86-aad3898b15b3 button.colab-df-convert');
         buttonEl.style.display =
           google.colab.kernel.accessAllowed ? 'block' : 'none';
 
         async function convertToInteractive(key) {
-          const element = document.querySelector('#df-ec5b7eeb-047d-49dd-ac62-fe2426037e82');
+          const element = document.querySelector('#df-2929b010-c8c5-4426-9c86-aad3898b15b3');
           const dataTable =
             await google.colab.kernel.invokeFunction('convertToInteractive',
                                                      [key], {});
@@ -15308,7 +15308,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[5]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[45]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-python"><pre><span></span><span class="n">both</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">left</span><span class="o">=</span><span class="n">obs</span><span class="p">,</span> <span class="n">right</span><span class="o">=</span><span class="n">bfd</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="s2">"num"</span><span class="p">)</span>
@@ -15330,7 +15330,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-OutputArea-child">
 
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[5]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[45]:</div>
 
 
 
@@ -15379,10 +15379,18 @@ class="
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[6]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[43]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-python"><pre><span></span><span class="n">test_stat</span><span class="p">,</span> <span class="n">p</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">chisquare</span><span class="p">(</span><span class="n">both</span><span class="p">[</span><span class="s1">'observed'</span><span class="p">],</span> <span class="n">both</span><span class="p">[</span><span class="s1">'benford'</span><span class="p">])</span>
+<div class=" highlight hl-python"><pre><span></span><span class="n">observed</span> <span class="o">=</span> <span class="n">btc</span><span class="p">[</span><span class="s1">'input_value'</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">observed</span> <span class="o">=</span> <span class="n">observed</span><span class="p">[</span><span class="n">observed</span> <span class="o">!=</span> <span class="s2">"n"</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+<span class="n">observed</span> <span class="o">=</span> <span class="n">observed</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">sort_index</span><span class="p">()</span>
+<span class="n">observed</span>
+
+<span class="n">benford</span> <span class="o">=</span> <span class="n">bfd</span><span class="p">[</span><span class="s1">'benford'</span><span class="p">]</span> <span class="o">*</span> <span class="nb">sum</span><span class="p">(</span><span class="n">observed</span><span class="p">)</span>
+<span class="n">benford</span>
+
+<span class="n">test_stat</span><span class="p">,</span> <span class="n">p</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">chisquare</span><span class="p">(</span><span class="n">observed</span><span class="p">,</span> <span class="n">benford</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">"Test Statistic:"</span><span class="p">,</span> <span class="n">test_stat</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">"p-value:"</span><span class="p">,</span> <span class="n">p</span><span class="p">)</span>
 </pre></div>
@@ -15406,8 +15414,8 @@ class="
 
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>Test Statistic: 0.46105297311755356
-p-value: 0.9999020756306287
+<pre>Test Statistic: 460.1308671713185
+p-value: 2.4941920126704084e-94
 </pre>
 </div>
 </div>
