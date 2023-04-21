@@ -1,0 +1,18 @@
+---
+title: "probasets"
+links:
+  - label: Bitcoin
+    url: "https://mshsu.github.io/probasets/bitcoin_demo.html"
+  - label: Blotter
+    url: "https://mshsu.github.io/probasets/blotter_demo.html"
+  - label: Crashes
+    url: "https://mshsu.github.io/probasets/crashes_demo.html"
+  - label: Earthquakes
+    url: "https://mshsu.github.io/probasets/earthquakes_demo.html"
+  - label: Population
+    url: "https://mshsu.github.io/probasets/population_demo.html"
+output: postcards::jolla
+---
+
+Applying probability distributions to real life data.
+
