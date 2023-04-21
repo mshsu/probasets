@@ -51,9 +51,9 @@ renderDataTable({
     mutate(d = as.numeric(substr(as.character(var), 1, 1))) %>%
     group_by(d) %>%
     summarize(n = n()) %>%
-    mutate(observed = n / sum(n),
-           benford = log10((d+1)/d)) %>%
-    select(d, observed, benford)
+    mutate(observed = round(n / sum(n), 4),
+           benford = round(log10((d+1)/d), 4)) %>%
+    select(d, observed, benford) 
 }, rownames=FALSE)
 ```
 
