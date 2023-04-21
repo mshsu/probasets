@@ -1,0 +1,109 @@
+---
+title: "Population Demo"
+output: 
+  html_document:
+    df_print: kable
+    code_folding: hide
+runtime: shiny
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, message = FALSE)
+```
+
+Inspired by Dr. Jimmy Doi's [RShiny app](http://shiny.calpoly.sh/BenfordData/).
+
+Benford's Law states that in real life numerical data, the leading digits are likely to be small. Do city population estimates from the US Census Bureau follow this law?
+
+# Setup
+
+```{r}
+library(tidyverse)
+library(DT)
+library(shiny)
+```
+
+# Data
+
+```{r}
+vars <- c('POPESTIMATE2020', 'POPESTIMATE2021', 'POPESTIMATE2022',
+          'BIRTHS2020', 'BIRTHS2021', 'BIRTHS2022',
+          'DEATHS2020', 'DEATHS2021', 'DEATHS2022')
+pop <- read_csv("http://mshsu.github.io/probasets/data/Population.csv")[c('STNAME', 'CTYNAME', vars)]
+datatable(pop, options=list(scrollX=TRUE))
+```
+
+# Variable
+
+```{r}
+selectInput("var", label = "Select one:",
+            choices = vars)
+```
+
+# Calculating Proportions:
+
+```{r}
+renderDataTable({
+  pop[vars] %>% 
+    select(input$var) %>%
+    mutate(var = !!sym(input$var)) %>%
+    filter(var > 0) %>%
+    mutate(d = as.numeric(substr(as.character(var), 1, 1))) %>%
+    group_by(d) %>%
+    summarize(n = n()) %>%
+    mutate(observed = n / sum(n),
+           benford = log10((d+1)/d)) %>%
+    select(d, observed, benford)
+}, rownames=FALSE)
+```
+
+# Visualization
+
+```{r}
+renderPlot({
+  pop[vars] %>% 
+    select(input$var) %>%
+    mutate(var = !!sym(input$var)) %>%
+    filter(var > 0) %>%
+    mutate(d = as.numeric(substr(as.character(var), 1, 1))) %>%
+    group_by(d) %>%
+    summarize(n = n()) %>%
+    mutate(observed = n / sum(n),
+           benford = log10((d+1)/d)) %>%
+    select(d, observed, benford) %>%
+    pivot_longer(cols=c(observed, benford),
+                 names_to="type", values_to="prop") %>%
+    ggplot(map = aes(x = d, y = prop, fill=type)) +
+    geom_bar(stat="identity", position=position_dodge()) +
+    scale_x_continuous(breaks = 1:9, limits = c(0, 10)) +
+    theme(legend.title=element_blank(),
+          legend.position="top",
+          panel.background = element_rect(fill='transparent'),
+          plot.background = element_rect(fill='transparent', color=NA),
+          panel.grid.major = element_blank(),
+          panel.grid.minor = element_blank()
+        )
+})
+```
+
+
+# Chi-Square Test for Goodness of Fit
+
+```{r}
+reactive({
+  obs <- pop[vars] %>% 
+    select(input$var) %>%
+    mutate(var = !!sym(input$var)) %>%
+    filter(var > 0) %>%
+    mutate(d = as.numeric(substr(as.character(var), 1, 1))) %>%
+    group_by(d) %>%
+    summarize(n = n())
+  d <- seq(1, 9)
+  exp <- log10((d+1)/d)
+  chisq.test(x=obs$n, p=exp)
+})
+```
+
+
+
+
