@@ -24,9 +24,9 @@ jobs:
 
     - name: Run Script and Update Notebooks
       run: |
-        jupyter nbconvert --execute --to html blotter_demo.ipynb
-        jupyter nbconvert --execute --to html earthquakes_demo.ipynb
-        jupyter nbconvert --execute --to html fireballs_demo.ipynb
+        jupyter nbconvert --execute --to html blotter_demo.ipynb --debug
+        jupyter nbconvert --execute --to html earthquakes_demo.ipynb --debug
+        jupyter nbconvert --execute --to html fireballs_demo.ipynb --debug
 
     - name: Commit and Push Changes
       run: |
