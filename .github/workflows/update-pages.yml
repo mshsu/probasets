@@ -1,4 +1,4 @@
-name: Update Dynamic Notebooks
+name: update-pages
 
 on:
 #  schedule:
@@ -24,17 +24,14 @@ jobs:
 
     - name: Run Script and Update Notebooks
       run: |
-        jupyter nbconvert --execute --to notebook blotter_demo.ipynb
         jupyter nbconvert --execute --to html blotter_demo.ipynb
-        jupyter nbconvert --execute --to notebook earthquakes_demo.ipynb
         jupyter nbconvert --execute --to html earthquakes_demo.ipynb
-        jupyter nbconvert --execute --to notebook fireballs_demo.ipynb
         jupyter nbconvert --execute --to html fireballs_demo.ipynb
 
     - name: Commit and Push Changes
       run: |
         git config --local user.email "actions@github.com"
         git config --local user.name "GitHub Actions"
-        git add blotter_demo.ipynb blotter_demo.html earthquakes_demo.ipynb earthquakes_demo.html fireballs_demo.ipynb fireballs_demo.html
-        git commit -m "Updated notebooks"
+        git add blotter_demo.html earthquakes_demo.html fireballs_demo.html
+        git commit -m "Updated html"
         git push origin main
