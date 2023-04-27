@@ -29,7 +29,8 @@ library(shiny)
 vars <- c('POPESTIMATE2020', 'POPESTIMATE2021', 'POPESTIMATE2022',
           'BIRTHS2020', 'BIRTHS2021', 'BIRTHS2022',
           'DEATHS2020', 'DEATHS2021', 'DEATHS2022')
-pop <- read_csv("http://mshsu.github.io/probasets/data/Population.csv")[c('STNAME', 'CTYNAME', vars)]
+pop <- read_csv("http://mshsu.github.io/probasets/data/Population.csv")[c('STNAME', 'CTYNAME', vars)] %>%
+  filter(STNAME != CTYNAME)
 datatable(pop, options=list(scrollX=TRUE))
 ```
 
