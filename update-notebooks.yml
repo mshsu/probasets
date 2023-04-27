@@ -1,0 +1,40 @@
+name: Update Dynamic Notebooks
+
+on:
+  schedule:
+    - cron: '0 */24 * * 1'
+  workflow_dispatch:
+
+jobs:
+  update_notebooks:
+    name: Update notebooks with latest data
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+
+    - name: Setup Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.9'
+        cache: 'pip'
+
+    - name: Install Dependencies
+      run: pip install -r requirements.txt
+
+    - name: Run Script and Update Notebooks
+      run: |
+        jupyter nbconvert --execute --to notebook blotter_demo.ipynb
+        jupyter nbconvert --execute --to html blotter_demo.ipynb
+        jupyter nbconvert --execute --to notebook earthquakes_demo.ipynb
+        jupyter nbconvert --execute --to html earthquakes_demo.ipynb
+        jupyter nbconvert --execute --to notebook fireballs_demo.ipynb
+        jupyter nbconvert --execute --to html fireballs_demo.ipynb
+
+   - name: Commit and Push Changes
+     run: |
+       git config --local user.email "actions@github.com"
+       git config --local user.name "GitHub Actions"
+       git add blotter_demo.ipynb blotter_demo.html earthquakes_demo.ipynb earthquakes_demo.html fireballs_demo.ipynb fireballs_demo.html
+       git commit -m "Updated notebooks"
+       git push origin main
