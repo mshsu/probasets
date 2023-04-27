@@ -7,6 +7,7 @@
  - **Blotter.csv**: Activity logs, summarizing incidents reported to Cal Poly University Police over the past 60 days. An updated log is generally posted by 9:00 AM the following day. This data was scraped on 4/15/2023. *[Source](https://afd.calpoly.edu/police/campus-reports/logs)*
  - **Crashes.csv**: SLO County vehicle accidents data. Contains data reported from 2/2/2013 to 2/15/2021. *[Source](https://tims.berkeley.edu/) (signup needed), [Codebook](https://tims.berkeley.edu/help/SWITRS.php#Codebook)*
  - **Earthquakes.csv**: Real-time earthquakes data from the past 30 days, updated every minute. This dataset was downloaded 3/10/2023. *[Source](https://earthquake.usgs.gov/earthquakes/feed/v1.0/csv.php)*
+ - **Fireball.csv**: Real-time fireballs (meteors, etc.) data since 1980. This dataset was downloaded 4/26/2023. *[Source](https://cneos.jpl.nasa.gov/fireballs/), [Codebook](https://ssd-api.jpl.nasa.gov/doc/fireball.html)*
 
 ### Bivariate Normal
 
@@ -39,6 +40,7 @@
  - **COVIDHospitals.csv**: From the Center for Medicare and Medicaid Services (CMS)
  - **Crashes.csv**: From the Berkeley Transportation Injury Mapping System (TIMS)
  - **Earthquakes.csv**: From the US Geological Survey (USGS)
+ - **Fireballs.csv**: From NASA Center for Near Earth Object Studies (CNEOS)
  - **Insurance.csv**: From the Center for Medicare and Medicaid Services (CMS)
  - **LengthOfStay.csv**: From Microsoft Machine Learning Services
  - **Population.csv**: From the US Census Bureau
