@@ -33,5 +33,5 @@ jobs:
         git config --local user.email "actions@github.com"
         git config --local user.name "GitHub Actions"
         git add blotter_demo.html earthquakes_demo.html fireballs_demo.html
-        git commit -m "Updated html"
+        git commit -m "Updated html pages"
         git push origin main
