@@ -215,20 +215,28 @@ renderUI({
 })
 ```
 
+```{r}
+cond.mean <- reactive({
+  mean2() + sd2() / sd1() * r() * (input$condition - mean1())
+})
+
+cond.var <- reactive({
+  (1 - r()^2)*sd2()^2
+})
+```
 
 ```{r}
 renderPlot({
   validate(
     need(input$var1 != input$var2, "Please select two different variables")
   )
-  cond.mean <- mean2() + sd2() / sd1() * r() * (input$condition - mean1())
-  cond.var <- (1 - r()^2)*sd2()^2
+  
   x <- seq(round(mean2()-2*sd2(), digits=1),
            round(mean2()+2*sd2(), digits=1),
            by = 0.1)
   data.frame(x) %>%
-    mutate(y = dnorm(x, mean=cond.mean,
-                     sd = sqrt(cond.var))) %>%
+    mutate(y = dnorm(x, mean=cond.mean(),
+                     sd = sqrt(cond.var()))) %>%
     ggplot(mapping = aes(x, y)) +
     geom_line(color = "red", size = 1) +
     theme(panel.background = element_rect(fill='transparent'),
@@ -240,6 +248,23 @@ renderPlot({
     ylab("Density")
 })
 ```
+
+Conditional Mean:
+
+```{r}
+renderPrint({
+  print(cond.mean())
+})
+```
+
+Conditional Variance:
+
+```{r}
+renderPrint({
+  print(cond.var())
+})
+```
+
 
 ```{r}
 renderPlot({
