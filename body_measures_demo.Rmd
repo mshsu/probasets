@@ -45,13 +45,13 @@ varnames <- c('BMXWT', 'BMXRECUM', 'BMXHEAD',
 ```{r}
 selectInput("var1", 
             label = "Select your first variable:",
-            choices = varnames)
+            choices = varnames, selected = "BMXWT")
 ```
 
 ```{r}
 selectInput("var2", 
             label = "Select your second variable:",
-            choices = varnames)
+            choices = varnames, selected = "BMXBMI")
 ```
 
 ```{r}
@@ -61,16 +61,46 @@ renderDataTable({
 })
 ```
 
+```{r}
+bm2 <- reactive({
+  bm %>%
+    select(input$var1, input$var2) %>%
+    drop_na()
+})
+
+mean1 <- reactive({
+  mean(bm2()[[input$var1]], na.rm=TRUE)
+})
+
+mean2 <- reactive({
+  mean(bm2()[[input$var2]], na.rm=TRUE)
+})
+
+sd1 <- reactive({
+  sd(bm2()[[input$var1]], na.rm=TRUE)
+})
+
+sd2 <- reactive({
+  sd(bm2()[[input$var2]], na.rm=TRUE)
+})
+
+cv <- reactive({
+  cov(bm2())[1,2]
+})
+
+r <- reactive({
+  cor(bm2())[1,2]
+})
+```
+
+
 # Descriptive Statistics
 
 Mean:
 
 ```{r}
 renderPrint({
-  bm2 <- bm %>%
-    select(input$var1, input$var2) %>%
-    drop_na()
-  print(apply(bm2, 2, mean))
+  print(apply(bm2(), 2, mean))
 })
 ```
 
@@ -78,10 +108,7 @@ Standard Deviation:
 
 ```{r}
 renderPrint({
-  bm2 <- bm %>%
-    select(input$var1, input$var2) %>%
-    drop_na()
-  print(apply(bm2, 2, sd))
+  print(apply(bm2(), 2, sd))
 })
 ```
 
@@ -89,10 +116,7 @@ Covariance Matrix:
 
 ```{r}
 renderPrint({
-  bm2 <- bm %>%
-    select(input$var1, input$var2) %>%
-    drop_na()
-  print(cov(bm2))
+  print(cov(bm2()))
 })
 ```
 
@@ -100,10 +124,7 @@ Correlation Matrix:
 
 ```{r}
 renderPrint({
-  bm2 <- bm %>%
-    select(input$var1, input$var2) %>%
-    drop_na()
-  print(cor(bm2))
+  print(cor(bm2()))
 })
 ```
 
@@ -111,14 +132,11 @@ renderPrint({
 
 ```{r}
 renderPlot({
-  bm2 <- bm %>%
-    select(input$var1, input$var2) %>%
-    drop_na()
-  ggplot(data = bm2, aes(x = !!sym(input$var1))) + 
+  ggplot(data = bm2(), aes(x = !!sym(input$var1))) + 
     geom_histogram(aes(y = ..density..), bins = 10, alpha = 0.5, fill = "blue") +
     stat_function(fun = dnorm, 
-                  args = list(mean = mean(bm2[[input$var1]], na.rm=TRUE), 
-                              sd = sd(bm2[[input$var1]], na.rm=TRUE)), 
+                  args = list(mean = mean1(), 
+                              sd = sd1()), 
                   color = "orange", size = 1.5) +
     labs(title = paste("Histogram of", input$var1), x = input$var1, y = "Density") +
     theme(panel.background = element_rect(fill='transparent'),
@@ -130,15 +148,12 @@ renderPlot({
 
 ```{r}
 renderPlot({
-  bm2 <- bm %>%
-    select(input$var1, input$var2) %>%
-    drop_na()
-  ggplot(data = bm2, aes(x = !!sym(input$var2))) + 
+  ggplot(data = bm2(), aes(x = !!sym(input$var2))) + 
     geom_histogram(aes(y = after_stat(density)), 
                    bins = 10, alpha = 0.5, fill = "blue") + 
     stat_function(fun = dnorm, 
-                  args = list(mean = mean(bm2[[input$var2]], na.rm=TRUE), 
-                              sd = sd(bm2[[input$var2]], na.rm=TRUE)), 
+                  args = list(mean = mean2(), 
+                              sd = sd2()), 
                   color = "orange", size = 1.5) +
     labs(title = paste("Histogram of", input$var2), x = input$var2, y = "Density") +
     theme(panel.background = element_rect(fill='transparent'),
@@ -152,20 +167,16 @@ renderPlot({
 
 ```{r}
 renderPlot({
-  bm2 <- bm %>%
-    select(input$var1, input$var2) %>%
-    drop_na()
-  mean1 <- mean(bm2[[1]])
-  mean2 <- mean(bm2[[2]])
-  sd1 <- sd(bm2[[1]])
-  sd2 <- sd(bm2[[2]])
+  validate(
+    need(input$var1 != input$var2, "Please select two different variables")
+  )
   # mean vector and covariance matrix
-  mu <- c(mean1, mean2)
-  sigma <- cov(bm2)
+  mu <- c(mean1(), mean2())
+  sigma <- cov(bm2())
   
   # create grid of x and y values
-  x <- seq(mean1-3*sd1, mean1+3*sd1, length.out = 100)
-  y <- seq(mean2-3*sd2, mean2+3*sd2, length.out = 100)
+  x <- seq(mean1()-3*sd1(), mean1()+3*sd1(), length.out = 100)
+  y <- seq(mean2()-3*sd2(), mean2()+3*sd2(), length.out = 100)
   xy <- expand.grid(x, y)
   
   # evaluate bivariate normal density
@@ -176,7 +187,7 @@ renderPlot({
   
   # create 2D plot
   ggplot() +
-    geom_point(data = bm, 
+    geom_point(data = bm2(), 
                mapping = aes(!!sym(input$var1), 
                              !!sym(input$var2)),
                color="blue", alpha=0.5
@@ -190,3 +201,76 @@ renderPlot({
           panel.grid.minor = element_blank())
 })
 ```
+
+# Conditional Distribution (Theoretical)
+
+```{r}
+renderUI({
+  numericInput("condition", paste("Conditional distribution of ", input$var2, 
+                                  ", given ", input$var1, " equals:", sep=''),
+            min = floor(mean1() - 2*sd1()),
+            max = ceiling(mean1() + 2*sd1()),
+            value = round(mean1()),
+            step = 1)
+})
+```
+
+
+```{r}
+renderPlot({
+  validate(
+    need(input$var1 != input$var2, "Please select two different variables")
+  )
+  cond.mean <- mean2() + sd2() / sd1() * r() * (input$condition - mean1())
+  cond.var <- (1 - r()^2)*sd2()^2
+  x <- seq(round(mean2()-2*sd2(), digits=1),
+           round(mean2()+2*sd2(), digits=1),
+           by = 0.1)
+  data.frame(x) %>%
+    mutate(y = dnorm(x, mean=cond.mean,
+                     sd = sqrt(cond.var))) %>%
+    ggplot(mapping = aes(x, y)) +
+    geom_line(color = "red", size = 1) +
+    theme(panel.background = element_rect(fill='transparent'),
+          plot.background = element_rect(fill='transparent', color=NA),
+          panel.grid.major = element_blank(),
+          panel.grid.minor = element_blank()) +
+    xlim(c(mean2()-2*sd2(), mean2()+2*sd2())) +
+    xlab(input$var2) +
+    ylab("Density")
+})
+```
+
+```{r}
+renderPlot({
+  validate(
+    need(input$var1 != input$var2, "Please select two different variables")
+  )
+  # mean vector and covariance matrix
+  mu <- c(mean1(), mean2())
+  sigma <- cov(bm2())
+  
+  # create grid of x and y values
+  x <- seq(mean1()-3*sd1(), mean1()+3*sd1(), length.out = 100)
+  y <- seq(mean2()-3*sd2(), mean2()+3*sd2(), length.out = 100)
+  xy <- expand.grid(x, y)
+  
+  # evaluate bivariate normal density
+  z <- dmvnorm(xy, mean = mu, sigma = sigma)
+  
+  # create data frame with x, y, and z values
+  df <- data.frame(x = xy[,1], y = xy[,2], z = z)
+  
+  # create 2D plot
+  ggplot() +
+    geom_contour(data = df, mapping = aes(x, y, z = z), color="orange", size=1) +
+    geom_vline(xintercept = input$condition, color = "red") +
+    labs(x = input$var1, y = input$var2) +
+    theme(legend.position="none",
+          panel.background = element_rect(fill='transparent'),
+          plot.background = element_rect(fill='transparent', color=NA),
+          panel.grid.major = element_blank(),
+          panel.grid.minor = element_blank())
+})
+```
+
