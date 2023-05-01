@@ -206,40 +206,65 @@ renderPlot({
 
 ```{r}
 renderUI({
-  numericInput("condition", paste("Conditional distribution of ", input$var2, 
-                                  ", given ", input$var1, " equals:", sep=''),
-            min = floor(mean1() - 2*sd1()),
-            max = ceiling(mean1() + 2*sd1()),
-            value = round(mean1()),
+  numericInput("condition", paste("Conditional distribution of ", input$var1, 
+                                  ", given ", input$var2, " equals:", sep=''),
+            min = floor(mean2() - 2*sd2()),
+            max = ceiling(mean2() + 2*sd2()),
+            value = round(mean2()),
             step = 1)
 })
 ```
 
+```{r}
+cond.mean <- reactive({
+  mean1() + sd1() / sd2() * r() * (input$condition - mean2())
+})
+
+cond.var <- reactive({
+  (1 - r()^2)*sd1()^2
+})
+```
 
 ```{r}
 renderPlot({
   validate(
     need(input$var1 != input$var2, "Please select two different variables")
   )
-  cond.mean <- mean2() + sd2() / sd1() * r() * (input$condition - mean1())
-  cond.var <- (1 - r()^2)*sd2()^2
-  x <- seq(round(mean2()-2*sd2(), digits=1),
-           round(mean2()+2*sd2(), digits=1),
+  
+  x <- seq(round(mean1()-3*sd1(), digits=1),
+           round(mean1()+3*sd1(), digits=1),
            by = 0.1)
   data.frame(x) %>%
-    mutate(y = dnorm(x, mean=cond.mean,
-                     sd = sqrt(cond.var))) %>%
+    mutate(y = dnorm(x, mean=cond.mean(),
+                     sd = sqrt(cond.var()))) %>%
     ggplot(mapping = aes(x, y)) +
     geom_line(color = "red", size = 1) +
     theme(panel.background = element_rect(fill='transparent'),
           plot.background = element_rect(fill='transparent', color=NA),
           panel.grid.major = element_blank(),
           panel.grid.minor = element_blank()) +
-    xlim(c(mean2()-2*sd2(), mean2()+2*sd2())) +
-    xlab(input$var2) +
+    xlim(c(mean1()-2*sd1(), mean1()+2*sd1())) +
+    xlab(input$var1) +
     ylab("Density")
 })
 ```
+
+Conditional Mean:
+
+```{r}
+renderPrint({
+  print(cond.mean())
+})
+```
+
+Conditional Variance:
+
+```{r}
+renderPrint({
+  print(cond.var())
+})
+```
+
 
 ```{r}
 renderPlot({
@@ -264,7 +289,7 @@ renderPlot({
   # create 2D plot
   ggplot() +
     geom_contour(data = df, mapping = aes(x, y, z = z), color="orange", size=1) +
-    geom_vline(xintercept = input$condition, color = "red") +
+    geom_hline(yintercept = input$condition, color = "red") +
     labs(x = input$var1, y = input$var2) +
     theme(legend.position="none",
           panel.background = element_rect(fill='transparent'),
