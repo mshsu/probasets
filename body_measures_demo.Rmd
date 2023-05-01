@@ -1,0 +1,192 @@
+---
+title: "Body Measures Demo"
+output: 
+  html_document:
+    df_print: kable
+    code_folding: hide
+runtime: shiny
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, message = FALSE, warning = FALSE)
+```
+
+# Setup
+
+```{r}
+library(tidyverse)
+library(shiny)
+library(DT)
+library(ggplot2)
+library(mvtnorm)
+```
+
+# Data
+
+```{r}
+bm <- read_csv("https://mshsu.github.io/probasets/data/BodyMeasures.csv")
+```
+
+```{r}
+renderDataTable({
+  datatable(bm, options = list(scrollX = TRUE))
+})
+```
+
+# Variables
+
+```{r}
+varnames <- c('BMXWT', 'BMXRECUM', 'BMXHEAD',
+              'BMXHT', 'BMXBMI', 'BMXLEG',
+              'BMXARML', 'BMXARMC', 'BMXWAIST',
+              'BMXHIP')
+```
+
+```{r}
+selectInput("var1", 
+            label = "Select your first variable:",
+            choices = varnames)
+```
+
+```{r}
+selectInput("var2", 
+            label = "Select your second variable:",
+            choices = varnames)
+```
+
+```{r}
+renderDataTable({
+  bm %>%
+    select(SEQN, input$var1, input$var2)
+})
+```
+
+# Descriptive Statistics
+
+Mean:
+
+```{r}
+renderPrint({
+  bm2 <- bm %>%
+    select(input$var1, input$var2) %>%
+    drop_na()
+  print(apply(bm2, 2, mean))
+})
+```
+
+Standard Deviation:
+
+```{r}
+renderPrint({
+  bm2 <- bm %>%
+    select(input$var1, input$var2) %>%
+    drop_na()
+  print(apply(bm2, 2, sd))
+})
+```
+
+Covariance Matrix:
+
+```{r}
+renderPrint({
+  bm2 <- bm %>%
+    select(input$var1, input$var2) %>%
+    drop_na()
+  print(cov(bm2))
+})
+```
+
+Correlation Matrix:
+
+```{r}
+renderPrint({
+  bm2 <- bm %>%
+    select(input$var1, input$var2) %>%
+    drop_na()
+  print(cor(bm2))
+})
+```
+
+# Marginal Distributions
+
+```{r}
+renderPlot({
+  bm2 <- bm %>%
+    select(input$var1, input$var2) %>%
+    drop_na()
+  ggplot(data = bm2, aes(x = !!sym(input$var1))) + 
+    geom_histogram(aes(y = ..density..), bins = 10, alpha = 0.5, fill = "blue") +
+    stat_function(fun = dnorm, 
+                  args = list(mean = mean(bm2[[input$var1]], na.rm=TRUE), 
+                              sd = sd(bm2[[input$var1]], na.rm=TRUE)), 
+                  color = "orange", size = 1.5) +
+    labs(title = paste("Histogram of", input$var1), x = input$var1, y = "Density") +
+    theme(panel.background = element_rect(fill='transparent'),
+          plot.background = element_rect(fill='transparent', color=NA),
+          panel.grid.major = element_blank(),
+          panel.grid.minor = element_blank())
+})
+```
+
+```{r}
+renderPlot({
+  bm2 <- bm %>%
+    select(input$var1, input$var2) %>%
+    drop_na()
+  ggplot(data = bm2, aes(x = !!sym(input$var2))) + 
+    geom_histogram(aes(y = after_stat(density)), 
+                   bins = 10, alpha = 0.5, fill = "blue") + 
+    stat_function(fun = dnorm, 
+                  args = list(mean = mean(bm2[[input$var2]], na.rm=TRUE), 
+                              sd = sd(bm2[[input$var2]], na.rm=TRUE)), 
+                  color = "orange", size = 1.5) +
+    labs(title = paste("Histogram of", input$var2), x = input$var2, y = "Density") +
+    theme(panel.background = element_rect(fill='transparent'),
+          plot.background = element_rect(fill='transparent', color=NA),
+          panel.grid.major = element_blank(),
+          panel.grid.minor = element_blank())
+})
+```
+
+# Joint Distribution
+
+```{r}
+renderPlot({
+  bm2 <- bm %>%
+    select(input$var1, input$var2) %>%
+    drop_na()
+  mean1 <- mean(bm2[[1]])
+  mean2 <- mean(bm2[[2]])
+  sd1 <- sd(bm2[[1]])
+  sd2 <- sd(bm2[[2]])
+  # mean vector and covariance matrix
+  mu <- c(mean1, mean2)
+  sigma <- cov(bm2)
+  
+  # create grid of x and y values
+  x <- seq(mean1-3*sd1, mean1+3*sd1, length.out = 100)
+  y <- seq(mean2-3*sd2, mean2+3*sd2, length.out = 100)
+  xy <- expand.grid(x, y)
+  
+  # evaluate bivariate normal density
+  z <- dmvnorm(xy, mean = mu, sigma = sigma)
+  
+  # create data frame with x, y, and z values
+  df <- data.frame(x = xy[,1], y = xy[,2], z = z)
+  
+  # create 2D plot
+  ggplot() +
+    geom_point(data = bm, 
+               mapping = aes(!!sym(input$var1), 
+                             !!sym(input$var2)),
+               color="blue", alpha=0.5
+               ) +
+    geom_contour(data = df, mapping = aes(x, y, z = z), color="orange", size=1) +
+    labs(x = input$var1, y = input$var2) +
+    theme(legend.position="none",
+          panel.background = element_rect(fill='transparent'),
+          plot.background = element_rect(fill='transparent', color=NA),
+          panel.grid.major = element_blank(),
+          panel.grid.minor = element_blank())
+})
+```
