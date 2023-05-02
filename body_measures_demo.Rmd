@@ -11,6 +11,10 @@ runtime: shiny
 knitr::opts_chunk$set(echo = TRUE, message = FALSE, warning = FALSE)
 ```
 
+Let's explore the relationship between body measurements. Are they normally distributed? Bivariate normally distributed? 
+
+The data are from the NHANES last pre-covid measurements in 2017-2018 (see [here](https://wwwn.cdc.gov/Nchs/Nhanes/2017-2018/BMX_J.htm) for more info).
+
 # Setup
 
 ```{r}
@@ -57,7 +61,8 @@ selectInput("var2",
 ```{r}
 renderDataTable({
   bm %>%
-    select(SEQN, input$var1, input$var2)
+    select(SEQN, input$var1, input$var2) %>%
+    drop_na()
 })
 ```
 
@@ -217,19 +222,11 @@ renderUI({
 
 ```{r}
 cond.mean <- reactive({
-<<<<<<< HEAD
   mean1() + sd1() / sd2() * r() * (input$condition - mean2())
 })
 
 cond.var <- reactive({
   (1 - r()^2)*sd1()^2
-=======
-  mean2() + sd2() / sd1() * r() * (input$condition - mean1())
-})
-
-cond.var <- reactive({
-  (1 - r()^2)*sd2()^2
->>>>>>> 365c13f334cd563a4f7b15ee63b038c0d1f9b002
 })
 ```
 
@@ -239,13 +236,8 @@ renderPlot({
     need(input$var1 != input$var2, "Please select two different variables")
   )
   
-<<<<<<< HEAD
   x <- seq(round(mean1()-3*sd1(), digits=1),
            round(mean1()+3*sd1(), digits=1),
-=======
-  x <- seq(round(mean2()-2*sd2(), digits=1),
-           round(mean2()+2*sd2(), digits=1),
->>>>>>> 365c13f334cd563a4f7b15ee63b038c0d1f9b002
            by = 0.1)
   data.frame(x) %>%
     mutate(y = dnorm(x, mean=cond.mean(),
