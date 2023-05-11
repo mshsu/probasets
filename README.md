@@ -1,4 +1,4 @@
-# STAT400 Datasets
+# Datasets
 
 ## Data Descriptions
 
