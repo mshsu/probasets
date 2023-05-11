@@ -11,7 +11,6 @@
 
 ### Bivariate Normal
 
- - **AirQuality.csv**: EPA Air Quality System (AQS) annual aggregate data by county, for 2022. *[Source](https://aqs.epa.gov/aqsweb/airdata/download_files.html#Annual), [Codebook](https://aqs.epa.gov/aqsweb/airdata/FileFormats.html#_annual_summary_files)*
  - **BodyMeasures.csv**: Laboratory body measurements taken from 2017-2018. *[Source](https://wwwn.cdc.gov/nchs/nhanes/search/datapage.aspx?Component=Examination&CycleBeginYear=2017), [Codebook](https://wwwn.cdc.gov/Nchs/Nhanes/2017-2018/BMX_J.htm)*
 
 ### Lognormal
@@ -25,6 +24,11 @@
  - **Population.csv**: US 2020 population estimate census data, by county. *[Source](https://www.census.gov/data/tables/time-series/demo/popest/2020s-counties-total.html), [Codebook](https://www2.census.gov/programs-surveys/popest/technical-documentation/file-layouts/2020-2022/CO-EST2022-ALLDATA.pdf)*
  - **Stocks.csv**: Stock market indices S&P500, Nasdaq and Dow Jones as reported and scraped on 4/17/2023. *[Source](https://markets.businessinsider.com/index/components/)*
  - **Bitcoin.csv**: Bitcoin most recent 1000 blockchain transactions on ledger, as of 4/17/2023. From Google's Bitcoin ETL BigQuery set. *[Source](https://cloud.google.com/blog/topics/public-datasets/bitcoin-in-bigquery-blockchain-analytics-on-public-data) (signup needed)*
+
+### Regression
+
+ - **AirQuality.csv**: EPA Air Quality System (AQS) annual aggregate data by county, for 2022. *[Source](https://aqs.epa.gov/aqsweb/airdata/download_files.html#Annual), [Codebook](https://aqs.epa.gov/aqsweb/airdata/FileFormats.html#_annual_summary_files)*
+
 
 ### Actuarial Data
 
