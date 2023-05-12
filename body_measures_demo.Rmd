@@ -32,6 +32,7 @@ bm <- read_csv("https://mshsu.github.io/probasets/data/BodyMeasures.csv")
 ```
 
 ```{r}
+# Show all data
 renderDataTable({
   datatable(bm, options = list(scrollX = TRUE))
 })
@@ -40,6 +41,8 @@ renderDataTable({
 # Variables
 
 ```{r}
+# List variable names we want to see bvn relationships between
+# To be used in reactive dropdown
 varnames <- c('BMXWT', 'BMXRECUM', 'BMXHEAD',
               'BMXHT', 'BMXBMI', 'BMXLEG',
               'BMXARML', 'BMXARMC', 'BMXWAIST',
@@ -47,18 +50,21 @@ varnames <- c('BMXWT', 'BMXRECUM', 'BMXHEAD',
 ```
 
 ```{r}
+# Use list of variable names to choose first variable
 selectInput("var1", 
             label = "Select your first variable:",
             choices = varnames, selected = "BMXWT")
 ```
 
 ```{r}
+# Use list of variable names to choose second variable
 selectInput("var2", 
             label = "Select your second variable:",
             choices = varnames, selected = "BMXBMI")
 ```
 
 ```{r}
+# Show all observations with both variables not null
 renderDataTable({
   bm %>%
     select(SEQN, input$var1, input$var2) %>%
@@ -67,32 +73,34 @@ renderDataTable({
 ```
 
 ```{r}
+# Same as table above, but with only variables
 bm2 <- reactive({
   bm %>%
     select(input$var1, input$var2) %>%
     drop_na()
 })
 
+# Calculate mean of variable 1, to be used in visualizations
 mean1 <- reactive({
   mean(bm2()[[input$var1]], na.rm=TRUE)
 })
-
+# Calculate mean of variable 2, to be used in visualizations
 mean2 <- reactive({
   mean(bm2()[[input$var2]], na.rm=TRUE)
 })
-
+# Calculate sd of variable 1, to be used in visualizations
 sd1 <- reactive({
   sd(bm2()[[input$var1]], na.rm=TRUE)
 })
-
+# Calculate sd of variable 1, to be used in visualizations
 sd2 <- reactive({
   sd(bm2()[[input$var2]], na.rm=TRUE)
 })
-
+# Calculate cov, to be used in visualizations
 cv <- reactive({
   cov(bm2())[1,2]
 })
-
+# Calculate corr, to be used in visualizations
 r <- reactive({
   cor(bm2())[1,2]
 })
@@ -104,6 +112,7 @@ r <- reactive({
 Mean:
 
 ```{r}
+# Here we are simply printing out descriptive statistics
 renderPrint({
   print(apply(bm2(), 2, mean))
 })
@@ -135,14 +144,26 @@ renderPrint({
 
 # Marginal Distributions
 
+ORANGE represents the theoretical marginal normal distribution.
+
+BLUE represents the observed data marginal distribution.
+
 ```{r}
 renderPlot({
+  # Here we want to plot the marginal distribution of variable 1
+  # We are using the bm2 dataset, which contains all observations with 
+  #   both variables selected in the reactive dropdown being not null
+  # !!sym(input$var1) changes our chosen variable 1 name from a string
+  #   to a literal input that we can use as a variable in aes()
   ggplot(data = bm2(), aes(x = !!sym(input$var1))) + 
+    # geom_histogram plots our histogram of the observed data in blue
     geom_histogram(aes(y = ..density..), bins = 10, alpha = 0.5, fill = "blue") +
+    # stat_function plots the theoretical marginal distribution
     stat_function(fun = dnorm, 
                   args = list(mean = mean1(), 
                               sd = sd1()), 
                   color = "orange", size = 1.5) +
+    # Cosmetic stuff
     labs(title = paste("Histogram of", input$var1), x = input$var1, y = "Density") +
     theme(panel.background = element_rect(fill='transparent'),
           plot.background = element_rect(fill='transparent', color=NA),
@@ -153,6 +174,7 @@ renderPlot({
 
 ```{r}
 renderPlot({
+  # We repeat the previous chunk, but for variable 2
   ggplot(data = bm2(), aes(x = !!sym(input$var2))) + 
     geom_histogram(aes(y = after_stat(density)), 
                    bins = 10, alpha = 0.5, fill = "blue") + 
@@ -169,6 +191,12 @@ renderPlot({
 ```
 
 # Joint Distribution
+
+ORANGE represents the theoretical bivariate normal distribution.
+
+BLUE represents the observed data distribution.
+
+GREEN represents the regression line fit to the data.
 
 ```{r}
 renderPlot({
@@ -192,12 +220,20 @@ renderPlot({
   
   # create 2D plot
   ggplot() +
+    # Plot observed data as a scatterplot
     geom_point(data = bm2(), 
                mapping = aes(!!sym(input$var1), 
                              !!sym(input$var2)),
                color="blue", alpha=0.5
                ) +
+    # Plot theoretical bvn distribution as contour plot
     geom_contour(data = df, mapping = aes(x, y, z = z), color="orange", size=1) +
+    # Plot regression line
+    geom_smooth(data = bm2(), mapping = aes(!!sym(input$var1), 
+                                            !!sym(input$var2)),
+                method = "lm", formula = y ~ x, 
+                color = "green") +
+    # Cosmetic stuff
     labs(x = input$var1, y = input$var2) +
     theme(legend.position="none",
           panel.background = element_rect(fill='transparent'),
@@ -207,26 +243,48 @@ renderPlot({
 })
 ```
 
-# Conditional Distribution (Theoretical)
+# Conditional Distribution (Simulated)
+
+Each of the following graphic elements are generated independent of each other. Both are generated from the theoretical bivariate normal distribution (in ORANGE):
+
+- RED represents the theoretical conditional distribution in the histogram, or its slice on the scatter/contour plot.
+- PURPLE represents simulated values.
 
 ```{r}
 renderUI({
+  # We are conditioning variable 1 on variable 2's value
+  # Here we choose a value from the range of values in variable 2
+  # For computational reasons, we limit this to integer values
   numericInput("condition", paste("Conditional distribution of ", input$var1, 
                                   ", given ", input$var2, " equals:", sep=''),
             min = floor(mean2() - 2*sd2()),
             max = ceiling(mean2() + 2*sd2()),
             value = round(mean2()),
-            step = 1)
+            step = 0.1)
 })
 ```
 
 ```{r}
+# Calculate conditional mean, variance
 cond.mean <- reactive({
   mean1() + sd1() / sd2() * r() * (input$condition - mean2())
 })
 
 cond.var <- reactive({
   (1 - r()^2)*sd1()^2
+})
+
+# Simulate values from the theoretical bvn distribution we fit to data
+sim_vals <- reactive({
+   data.frame(rmvnorm(5000000, 
+                      mean=c(mean1(), mean2()),
+                      sigma=cov(bm2())))
+})
+
+# Choose simulated values that match condition
+sim_cond <- reactive({
+  sim_vals() %>%
+    filter(round(X2, digits = 3) == input$condition)
 })
 ```
 
@@ -236,19 +294,34 @@ renderPlot({
     need(input$var1 != input$var2, "Please select two different variables")
   )
   
-  x <- seq(round(mean1()-3*sd1(), digits=1),
-           round(mean1()+3*sd1(), digits=1),
-           by = 0.1)
-  data.frame(x) %>%
+  # Create a range to plot our theoretical curves on
+  x_vals <- seq(round(mean1()-3*sd1(), digits=1), 
+                round(mean1()+3*sd1(), digits=1),
+                by = 0.1)
+  # This dataframe contains values with which to plot the theoretical 
+  #   conditional normal distribution, using the values we created above
+  #   and the conditional mean/variance
+  x_theoretical <- data.frame(x = x_vals) %>%
     mutate(y = dnorm(x, mean=cond.mean(),
-                     sd = sqrt(cond.var()))) %>%
-    ggplot(mapping = aes(x, y)) +
-    geom_line(color = "red", size = 1) +
+                     sd = sqrt(cond.var())))
+  
+  # Plot our simulated and theoretical distributions
+  ggplot() +
+    # Plot histogram of simulated observations values for variable 1
+    #   that match condition on variable 2
+    geom_histogram(data = sim_cond(), map = aes(y=..density.., x=X1),
+                   fill = "purple", alpha = 0.5) + 
+    # Plot theoretical conditional normal distribution
+    geom_line(data = x_theoretical, 
+              mapping = aes(x, y), 
+              color = "red", size = 1) +
+    # Cosmetic stuff
     theme(panel.background = element_rect(fill='transparent'),
           plot.background = element_rect(fill='transparent', color=NA),
           panel.grid.major = element_blank(),
           panel.grid.minor = element_blank()) +
-    xlim(c(mean1()-2*sd1(), mean1()+2*sd1())) +
+    xlim(c(mean1()-2.5*sd1(), mean1()+2.5*sd1())) +
+    ylim(c(0, max(x_theoretical$y) + 0.01))+
     xlab(input$var1) +
     ylab("Density")
 })
@@ -257,6 +330,7 @@ renderPlot({
 Conditional Mean:
 
 ```{r}
+# Print descriptive statistics
 renderPrint({
   print(cond.mean())
 })
@@ -293,14 +367,21 @@ renderPlot({
   
   # create 2D plot
   ggplot() +
+    # Create scatterplot of simulated values
+    geom_point(data = sample_n(sim_vals(), 10000), 
+                               mapping = aes(X1, X2), 
+                               color="purple", alpha=0.5) +
     geom_contour(data = df, mapping = aes(x, y, z = z), color="orange", size=1) +
-    geom_hline(yintercept = input$condition, color = "red") +
+    # Create contour plot of theoretical bvn distribution
+    geom_hline(yintercept = input$condition, color = "red", size=1) +
+    # cosmetic stuff
     labs(x = input$var1, y = input$var2) +
     theme(legend.position="none",
           panel.background = element_rect(fill='transparent'),
           plot.background = element_rect(fill='transparent', color=NA),
           panel.grid.major = element_blank(),
-          panel.grid.minor = element_blank())
+          panel.grid.minor = element_blank()) +
+    xlim(c(mean1()-2.5*sd1(), mean1()+2.5*sd1()))
 })
 ```
 
