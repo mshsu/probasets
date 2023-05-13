@@ -12,6 +12,7 @@
 ### Bivariate Normal
 
  - **BodyMeasures.csv**: Laboratory body measurements taken from 2017-2018. *[Source](https://wwwn.cdc.gov/nchs/nhanes/search/datapage.aspx?Component=Examination&CycleBeginYear=2017), [Codebook](https://wwwn.cdc.gov/Nchs/Nhanes/2017-2018/BMX_J.htm)*
+ - **Fish.csv**: Growth data from the Redfish Lake Idaho Sockeye Salmon captive broodstock study from 2000-2010. *[Source](https://www.webapps.nwfsc.noaa.gov/apex/parrdata/inventory/tables/table/redfish_lake_growth_data), [Codebook](https://www.fisheries.noaa.gov/inport/item/56820)*
 
 ### Lognormal
 
@@ -49,6 +50,7 @@
  - **Crashes.csv**: From the Berkeley Transportation Injury Mapping System (TIMS)
  - **Earthquakes.csv**: From the US Geological Survey (USGS)
  - **Fireballs.csv**: From NASA Center for Near Earth Object Studies (CNEOS)
+ - **Fish.csv**: From the Northwest Fisheries Science Center (NWFSC), through NOAA
  - **Insurance.csv**: From the Center for Medicare and Medicaid Services (CMS)
  - **LengthOfStay.csv**: From Microsoft Machine Learning Services
  - **Population.csv**: From the US Census Bureau
