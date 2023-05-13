@@ -16,6 +16,7 @@
 ### Lognormal
 
  - **Cities.csv**: Basic data on US cities, such as population and median income. Data updated as of 1/31/23. *[Source](https://simplemaps.com/data/us-cities)*
+ - **Crimes.csv**: California reported criminal incidents by agency, 2020. *[Source](https://cde.ucr.cjis.gov/LATEST/webapp/#/pages/docApi)*
  - **COVIDHospitals.csv**: Data on COVID long-term care utilization from New York, as reported the week of 3/7/2021. *[Source](https://data.cms.gov/covid-19/covid-19-nursing-home-data), [Codebook](https://data.cms.gov/sites/default/files/2022-11/COVID-19%20Nursing%20Home%20Data%20Dictionary%2011.20.2022.pdf)*
  - **StackOverflow.csv**: 1000 comments from StackOverflow in 2010. *[Source](https://cloud.google.com/blog/topics/public-datasets/google-bigquery-public-datasets-now-include-stack-overflow-q-a)*
  - **Wildfires.csv**: California aggregate wildfire data, with data up until 3/20/23. *[Source](https://www.fire.ca.gov/incidents)*
@@ -43,6 +44,7 @@
  - **Blotter.csv**: From California Polytechnic State University, San Luis Obispo
  - **BodyMeasures.csv**: From the National Health and Nutrition Examination Survey (NHANES) 
  - **Cities.csv**: From SimpleMaps
+ - **Crimes.csv**: From the FBI Crime Data API
  - **COVIDHospitals.csv**: From the Center for Medicare and Medicaid Services (CMS)
  - **Crashes.csv**: From the Berkeley Transportation Injury Mapping System (TIMS)
  - **Earthquakes.csv**: From the US Geological Survey (USGS)
