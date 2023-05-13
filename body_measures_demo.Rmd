@@ -232,7 +232,7 @@ renderPlot({
     geom_smooth(data = bm2(), mapping = aes(!!sym(input$var1), 
                                             !!sym(input$var2)),
                 method = "lm", formula = y ~ x, 
-                color = "green") +
+                color = "green", se=FALSE) +
     # Cosmetic stuff
     labs(x = input$var1, y = input$var2) +
     theme(legend.position="none",
@@ -286,13 +286,10 @@ sim_cond <- reactive({
   sim_vals() %>%
     filter(round(X2, digits = 3) == input$condition)
 })
-<<<<<<< HEAD
 
 sim_samp <- reactive({
   sample_n(sim_vals(), 10000)
 })
-=======
->>>>>>> 6b092f43faad467866d6c3143c6f47f386effe61
 ```
 
 ```{r}
@@ -375,11 +372,7 @@ renderPlot({
   # create 2D plot
   ggplot() +
     # Create scatterplot of simulated values
-<<<<<<< HEAD
     geom_point(data = sim_samp(), 
-=======
-    geom_point(data = sample_n(sim_vals(), 10000), 
->>>>>>> 6b092f43faad467866d6c3143c6f47f386effe61
                                mapping = aes(X1, X2), 
                                color="purple", alpha=0.5) +
     geom_contour(data = df, mapping = aes(x, y, z = z), color="orange", size=1) +
