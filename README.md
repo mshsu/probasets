@@ -46,7 +46,7 @@
  - **Blotter.csv**: From California Polytechnic State University, San Luis Obispo
  - **BodyMeasures.csv**: From the National Health and Nutrition Examination Survey (NHANES) 
  - **Cities.csv**: From SimpleMaps
- - **Crimes.csv**: From the FBI Crime Data API
+ - **Crimes.csv**: From the FBI Summary Reporting System (SRS), through the FBI Crime Data API
  - **COVIDHospitals.csv**: From the Center for Medicare and Medicaid Services (CMS)
  - **Crashes.csv**: From the Berkeley Transportation Injury Mapping System (TIMS)
  - **Earthquakes.csv**: From the US Geological Survey (USGS)
