@@ -13,6 +13,7 @@
 
  - **BodyMeasures.csv**: Laboratory body measurements taken from 2017-2018. *[Source](https://wwwn.cdc.gov/nchs/nhanes/search/datapage.aspx?Component=Examination&CycleBeginYear=2017), [Codebook](https://wwwn.cdc.gov/Nchs/Nhanes/2017-2018/BMX_J.htm)*
  - **Fish.csv**: Growth data from the Redfish Lake Idaho Sockeye Salmon captive broodstock study from 2000-2010. *[Source](https://www.webapps.nwfsc.noaa.gov/apex/parrdata/inventory/tables/table/redfish_lake_growth_data), [Codebook](https://www.fisheries.noaa.gov/inport/item/56820)*
+ - **OlympicFloor.csv**: Olympic artistic gymnastics floor exercise data for both genders. Years 2020, 2016 and 2012. *[Source](http://www.olympedia.org/event_names)*
 
 ### Lognormal
 
@@ -45,7 +46,7 @@
  - **Bitcoin.csv**: From Google BigQuery
  - **Blotter.csv**: From California Polytechnic State University, San Luis Obispo
  - **BodyMeasures.csv**: From the National Health and Nutrition Examination Survey (NHANES) 
- - **Cities.csv**: From SimpleMaps
+ - **Cities.csv**: From SimpleMaps.com
  - **Crimes.csv**: From the FBI Summary Reporting System (SRS), through the FBI Crime Data API
  - **COVIDHospitals.csv**: From the Center for Medicare and Medicaid Services (CMS)
  - **Crashes.csv**: From the Berkeley Transportation Injury Mapping System (TIMS)
@@ -54,6 +55,7 @@
  - **Fish.csv**: From the Northwest Fisheries Science Center (NWFSC), through NOAA
  - **Insurance.csv**: From the Center for Medicare and Medicaid Services (CMS)
  - **LengthOfStay.csv**: From Microsoft Machine Learning Services
+ - **OlympicFloor.csv**: From Olympedia.org
  - **Population.csv**: From the US Census Bureau
  - **Reddit.csv**: From Reddit, scraped with Python Reddit API Wrapper (PRAW)
  - **SandyLoans**: From the US Small Business Administration (SBA)
