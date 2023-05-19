@@ -21,7 +21,7 @@
  - **Crimes.csv**: California reported criminal incidents by agency, 2020. *[Source](https://cde.ucr.cjis.gov/LATEST/webapp/#/pages/docApi)*
  - **COVIDHospitals.csv**: Data on COVID long-term care utilization from New York, as reported the week of 3/7/2021. *[Source](https://data.cms.gov/covid-19/covid-19-nursing-home-data), [Codebook](https://data.cms.gov/sites/default/files/2022-11/COVID-19%20Nursing%20Home%20Data%20Dictionary%2011.20.2022.pdf)*
  - **Reddit.csv**: Comments scraped from top 50 posts of all time in r/CalPoly subreddit. *[Source]([https://www.reddit.com/r/CalPoly/](https://www.reddit.com/r/CalPoly/top/?t=all)), [Codebook](https://praw.readthedocs.io/en/stable/index.html)*
- - **StackOverflow.csv**: 1000 comments from StackOverflow in 2010. *[Source](https://cloud.google.com/blog/topics/public-datasets/google-bigquery-public-datasets-now-include-stack-overflow-q-a)*
+ - **StackOverflow.csv**: 1000 comments from StackOverflow in 2010. *[Source](https://cloud.google.com/blog/topics/public-datasets/google-bigquery-public-datasets-now-include-stack-overflow-q-a) (signup needed)*
  - **Wildfires.csv**: California aggregate wildfire data, with data up until 3/20/23. *[Source](https://www.fire.ca.gov/incidents)*
 
 ### Benford's Law
