@@ -14603,7 +14603,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[1]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-python"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
@@ -14635,7 +14635,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[2]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-python"><pre><span></span><span class="n">links</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"https://data.sba.gov/dataset/8aa276e2-6cab-4f86-aca4-a7dde42adf24/resource/137436c9-408e-47e9-a7f3-b9a1871c4e11/download/public_up_to_150k_1_230331.csv"</span><span class="p">,</span>
@@ -14658,12 +14658,416 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 </div>
 </div>
 
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[9]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-python"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">links</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">nrows</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[9]:</div>
+
+
+
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html">
+
+  <div id="df-c4ac0e91-572e-4e3a-8169-dec8a0d94412">
+    <div class="colab-df-container">
+      <div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>LoanNumber</th>
+      <th>DateApproved</th>
+      <th>SBAOfficeCode</th>
+      <th>ProcessingMethod</th>
+      <th>BorrowerName</th>
+      <th>BorrowerAddress</th>
+      <th>BorrowerCity</th>
+      <th>BorrowerState</th>
+      <th>BorrowerZip</th>
+      <th>LoanStatusDate</th>
+      <th>...</th>
+      <th>BusinessType</th>
+      <th>OriginatingLenderLocationID</th>
+      <th>OriginatingLender</th>
+      <th>OriginatingLenderCity</th>
+      <th>OriginatingLenderState</th>
+      <th>Gender</th>
+      <th>Veteran</th>
+      <th>NonProfit</th>
+      <th>ForgivenessAmount</th>
+      <th>ForgivenessDate</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>3509338307</td>
+      <td>01/22/2021</td>
+      <td>NaN</td>
+      <td>PPS</td>
+      <td>Exemption 6</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>02/18/2022</td>
+      <td>...</td>
+      <td>Non-Profit Organization</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Unanswered</td>
+      <td>Unanswered</td>
+      <td>Y</td>
+      <td>150775.38</td>
+      <td>01/13/2022</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>5375617707</td>
+      <td>05/01/2020</td>
+      <td>101.0</td>
+      <td>PPP</td>
+      <td>NOT AVAILABLE</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>07/16/2021</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>9551.0</td>
+      <td>Bank of America, National Association</td>
+      <td>CHARLOTTE</td>
+      <td>NC</td>
+      <td>Unanswered</td>
+      <td>Unanswered</td>
+      <td>NaN</td>
+      <td>150083.01</td>
+      <td>06/11/2021</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>9677497701</td>
+      <td>05/01/2020</td>
+      <td>464.0</td>
+      <td>PPP</td>
+      <td>NORTH CHARLESTON HOSPITALITY GROUP LLC</td>
+      <td>192 College Park Rd</td>
+      <td>Ladson</td>
+      <td>NaN</td>
+      <td>29456-3517</td>
+      <td>09/25/2021</td>
+      <td>...</td>
+      <td>Limited  Liability Company(LLC)</td>
+      <td>19248.0</td>
+      <td>Synovus Bank</td>
+      <td>COLUMBUS</td>
+      <td>GA</td>
+      <td>Unanswered</td>
+      <td>Unanswered</td>
+      <td>NaN</td>
+      <td>141920.11</td>
+      <td>08/25/2021</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>9547167709</td>
+      <td>05/01/2020</td>
+      <td>464.0</td>
+      <td>PPP</td>
+      <td>Q AND J SERVICES LLC</td>
+      <td>301 Old Georgetown Road</td>
+      <td>Manning</td>
+      <td>NaN</td>
+      <td>29102-2734</td>
+      <td>04/20/2021</td>
+      <td>...</td>
+      <td>Limited  Liability Company(LLC)</td>
+      <td>19248.0</td>
+      <td>Synovus Bank</td>
+      <td>COLUMBUS</td>
+      <td>GA</td>
+      <td>Unanswered</td>
+      <td>Unanswered</td>
+      <td>NaN</td>
+      <td>137747.78</td>
+      <td>03/29/2021</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>8885207205</td>
+      <td>04/28/2020</td>
+      <td>NaN</td>
+      <td>PPP</td>
+      <td>Exemption 6</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>05/20/2021</td>
+      <td>...</td>
+      <td>Non-Profit Organization</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Unanswered</td>
+      <td>Unanswered</td>
+      <td>Y</td>
+      <td>131876.98</td>
+      <td>04/27/2021</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>6448037706</td>
+      <td>05/01/2020</td>
+      <td>515.0</td>
+      <td>PPP</td>
+      <td>OPTIMIZED PROCESS SOLUTIONS DBA AAA INDUSTRIES</td>
+      <td>24500 CAPITOL</td>
+      <td>REDFORD</td>
+      <td>NaN</td>
+      <td>48239-2446</td>
+      <td>04/16/2021</td>
+      <td>...</td>
+      <td>Limited  Liability Company(LLC)</td>
+      <td>9551.0</td>
+      <td>Bank of America, National Association</td>
+      <td>CHARLOTTE</td>
+      <td>NC</td>
+      <td>Male Owned</td>
+      <td>Non-Veteran</td>
+      <td>NaN</td>
+      <td>127836.70</td>
+      <td>02/25/2021</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>9609017706</td>
+      <td>05/01/2020</td>
+      <td>464.0</td>
+      <td>PPP</td>
+      <td>D2 POWER SPORTS, LLC</td>
+      <td>125 Simuel Dr.</td>
+      <td>Spartanburg</td>
+      <td>NaN</td>
+      <td>29303-2085</td>
+      <td>05/15/2021</td>
+      <td>...</td>
+      <td>Limited  Liability Company(LLC)</td>
+      <td>19248.0</td>
+      <td>Synovus Bank</td>
+      <td>COLUMBUS</td>
+      <td>GA</td>
+      <td>Unanswered</td>
+      <td>Unanswered</td>
+      <td>NaN</td>
+      <td>127109.61</td>
+      <td>04/15/2021</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>9789867710</td>
+      <td>05/01/2020</td>
+      <td>101.0</td>
+      <td>PPP</td>
+      <td>VULCAN MACHINERY CORPORATION</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>11/17/2021</td>
+      <td>...</td>
+      <td>Corporation</td>
+      <td>57328.0</td>
+      <td>The Huntington National Bank</td>
+      <td>COLUMBUS</td>
+      <td>OH</td>
+      <td>Male Owned</td>
+      <td>Non-Veteran</td>
+      <td>NaN</td>
+      <td>112104.83</td>
+      <td>03/05/2021</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>9589997709</td>
+      <td>05/01/2020</td>
+      <td>101.0</td>
+      <td>PPP</td>
+      <td>TJK KITCHENS &amp;AMP; BREWPUBS, LLC</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>11/17/2021</td>
+      <td>...</td>
+      <td>Limited  Liability Company(LLC)</td>
+      <td>57328.0</td>
+      <td>The Huntington National Bank</td>
+      <td>COLUMBUS</td>
+      <td>OH</td>
+      <td>Unanswered</td>
+      <td>Unanswered</td>
+      <td>NaN</td>
+      <td>110881.96</td>
+      <td>03/01/2021</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>9662387700</td>
+      <td>05/01/2020</td>
+      <td>101.0</td>
+      <td>PPP</td>
+      <td>RON GOLDSTONE</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>05/22/2021</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>57328.0</td>
+      <td>The Huntington National Bank</td>
+      <td>COLUMBUS</td>
+      <td>OH</td>
+      <td>Unanswered</td>
+      <td>Unanswered</td>
+      <td>NaN</td>
+      <td>21036.19</td>
+      <td>04/29/2021</td>
+    </tr>
+  </tbody>
+</table>
+<p>10 rows × 53 columns</p>
+</div>
+      <button class="colab-df-convert" onclick="convertToInteractive('df-c4ac0e91-572e-4e3a-8169-dec8a0d94412')"
+              title="Convert this dataframe to an interactive table."
+              style="display:none;">
+        
+  <svg xmlns="http://www.w3.org/2000/svg" height="24px"viewBox="0 0 24 24"
+       width="24px">
+    <path d="M0 0h24v24H0V0z" fill="none"/>
+    <path d="M18.56 5.44l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94zm-11 1L8.5 8.5l.94-2.06 2.06-.94-2.06-.94L8.5 2.5l-.94 2.06-2.06.94zm10 10l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94z"/><path d="M17.41 7.96l-1.37-1.37c-.4-.4-.92-.59-1.43-.59-.52 0-1.04.2-1.43.59L10.3 9.45l-7.72 7.72c-.78.78-.78 2.05 0 2.83L4 21.41c.39.39.9.59 1.41.59.51 0 1.02-.2 1.41-.59l7.78-7.78 2.81-2.81c.8-.78.8-2.07 0-2.86zM5.41 20L4 18.59l7.72-7.72 1.47 1.35L5.41 20z"/>
+  </svg>
+      </button>
+      
+  <style>
+    .colab-df-container {
+      display:flex;
+      flex-wrap:wrap;
+      gap: 12px;
+    }
+
+    .colab-df-convert {
+      background-color: #E8F0FE;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: none;
+      fill: #1967D2;
+      height: 32px;
+      padding: 0 0 0 0;
+      width: 32px;
+    }
+
+    .colab-df-convert:hover {
+      background-color: #E2EBFA;
+      box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
+      fill: #174EA6;
+    }
+
+    [theme=dark] .colab-df-convert {
+      background-color: #3B4455;
+      fill: #D2E3FC;
+    }
+
+    [theme=dark] .colab-df-convert:hover {
+      background-color: #434B5C;
+      box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+      filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
+      fill: #FFFFFF;
+    }
+  </style>
+
+      <script>
+        const buttonEl =
+          document.querySelector('#df-c4ac0e91-572e-4e3a-8169-dec8a0d94412 button.colab-df-convert');
+        buttonEl.style.display =
+          google.colab.kernel.accessAllowed ? 'block' : 'none';
+
+        async function convertToInteractive(key) {
+          const element = document.querySelector('#df-c4ac0e91-572e-4e3a-8169-dec8a0d94412');
+          const dataTable =
+            await google.colab.kernel.invokeFunction('convertToInteractive',
+                                                     [key], {});
+          if (!dataTable) return;
+
+          const docLinkHtml = 'Like what you see? Visit the ' +
+            '<a target="_blank" href=https://colab.research.google.com/notebooks/data_table.ipynb>data table notebook</a>'
+            + ' to learn more about interactive tables.';
+          element.innerHTML = '';
+          dataTable['output_type'] = 'display_data';
+          await google.colab.output.renderOutput(dataTable, element);
+          const docLink = document.createElement('div');
+          docLink.innerHTML = docLinkHtml;
+          element.appendChild(docLink);
+        }
+      </script>
+    </div>
+  </div>
+  
+</div>
+
+</div>
+
+</div>
+
+</div>
+
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[3]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-python"><pre><span></span><span class="n">ppp</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">({</span><span class="n">key</span><span class="p">:</span> <span class="mi">0</span> <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">))})</span>
@@ -14687,6 +15091,206 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h2 id="First-Digit-Counts">First Digit Counts<a class="anchor-link" href="#First-Digit-Counts">&#182;</a></h2>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[6]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-python"><pre><span></span><span class="n">ppp</span><span class="o">.</span><span class="n">to_frame</span><span class="p">()</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s2">"index"</span><span class="p">:</span> <span class="s2">"num"</span><span class="p">,</span> <span class="mi">0</span><span class="p">:</span> <span class="s2">"count"</span><span class="p">})</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[6]:</div>
+
+
+
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html">
+
+  <div id="df-70a1d2fc-561a-469b-933f-2ef9c8dcbde5">
+    <div class="colab-df-container">
+      <div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>num</th>
+      <th>count</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>3381824</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2</td>
+      <td>3347092</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>3</td>
+      <td>1047845</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>4</td>
+      <td>834377</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>5</td>
+      <td>727031</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>6</td>
+      <td>623122</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>7</td>
+      <td>553054</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>8</td>
+      <td>511700</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>9</td>
+      <td>434426</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+      <button class="colab-df-convert" onclick="convertToInteractive('df-70a1d2fc-561a-469b-933f-2ef9c8dcbde5')"
+              title="Convert this dataframe to an interactive table."
+              style="display:none;">
+        
+  <svg xmlns="http://www.w3.org/2000/svg" height="24px"viewBox="0 0 24 24"
+       width="24px">
+    <path d="M0 0h24v24H0V0z" fill="none"/>
+    <path d="M18.56 5.44l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94zm-11 1L8.5 8.5l.94-2.06 2.06-.94-2.06-.94L8.5 2.5l-.94 2.06-2.06.94zm10 10l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94z"/><path d="M17.41 7.96l-1.37-1.37c-.4-.4-.92-.59-1.43-.59-.52 0-1.04.2-1.43.59L10.3 9.45l-7.72 7.72c-.78.78-.78 2.05 0 2.83L4 21.41c.39.39.9.59 1.41.59.51 0 1.02-.2 1.41-.59l7.78-7.78 2.81-2.81c.8-.78.8-2.07 0-2.86zM5.41 20L4 18.59l7.72-7.72 1.47 1.35L5.41 20z"/>
+  </svg>
+      </button>
+      
+  <style>
+    .colab-df-container {
+      display:flex;
+      flex-wrap:wrap;
+      gap: 12px;
+    }
+
+    .colab-df-convert {
+      background-color: #E8F0FE;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: none;
+      fill: #1967D2;
+      height: 32px;
+      padding: 0 0 0 0;
+      width: 32px;
+    }
+
+    .colab-df-convert:hover {
+      background-color: #E2EBFA;
+      box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
+      fill: #174EA6;
+    }
+
+    [theme=dark] .colab-df-convert {
+      background-color: #3B4455;
+      fill: #D2E3FC;
+    }
+
+    [theme=dark] .colab-df-convert:hover {
+      background-color: #434B5C;
+      box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+      filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
+      fill: #FFFFFF;
+    }
+  </style>
+
+      <script>
+        const buttonEl =
+          document.querySelector('#df-70a1d2fc-561a-469b-933f-2ef9c8dcbde5 button.colab-df-convert');
+        buttonEl.style.display =
+          google.colab.kernel.accessAllowed ? 'block' : 'none';
+
+        async function convertToInteractive(key) {
+          const element = document.querySelector('#df-70a1d2fc-561a-469b-933f-2ef9c8dcbde5');
+          const dataTable =
+            await google.colab.kernel.invokeFunction('convertToInteractive',
+                                                     [key], {});
+          if (!dataTable) return;
+
+          const docLinkHtml = 'Like what you see? Visit the ' +
+            '<a target="_blank" href=https://colab.research.google.com/notebooks/data_table.ipynb>data table notebook</a>'
+            + ' to learn more about interactive tables.';
+          element.innerHTML = '';
+          dataTable['output_type'] = 'display_data';
+          await google.colab.output.renderOutput(dataTable, element);
+          const docLink = document.createElement('div');
+          docLink.innerHTML = docLinkHtml;
+          element.appendChild(docLink);
+        }
+      </script>
+    </div>
+  </div>
+  
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h2 id="Calculating-Proportions">Calculating Proportions<a class="anchor-link" href="#Calculating-Proportions">&#182;</a></h2>
 </div>
 </div>
@@ -14696,7 +15300,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[7]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-python"><pre><span></span><span class="n">obs_ppp</span> <span class="o">=</span> <span class="n">ppp</span><span class="o">.</span><span class="n">divide</span><span class="p">(</span><span class="n">ppp</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span><span class="o">.</span><span class="n">to_frame</span><span class="p">()</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s2">"index"</span><span class="p">:</span> <span class="s2">"num"</span><span class="p">,</span> <span class="mi">0</span><span class="p">:</span> <span class="s2">"observed"</span><span class="p">})</span>
@@ -14718,13 +15322,13 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-OutputArea-child">
 
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[&nbsp;]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[7]:</div>
 
 
 
 <div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html">
 
-  <div id="df-a2596542-776f-4d48-8bf8-0310fe8705b8">
+  <div id="df-a8852990-78da-4d2f-b312-dacce5235489">
     <div class="colab-df-container">
       <div>
 <style scoped>
@@ -14797,7 +15401,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
   </tbody>
 </table>
 </div>
-      <button class="colab-df-convert" onclick="convertToInteractive('df-a2596542-776f-4d48-8bf8-0310fe8705b8')"
+      <button class="colab-df-convert" onclick="convertToInteractive('df-a8852990-78da-4d2f-b312-dacce5235489')"
               title="Convert this dataframe to an interactive table."
               style="display:none;">
         
@@ -14848,12 +15452,12 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 
       <script>
         const buttonEl =
-          document.querySelector('#df-a2596542-776f-4d48-8bf8-0310fe8705b8 button.colab-df-convert');
+          document.querySelector('#df-a8852990-78da-4d2f-b312-dacce5235489 button.colab-df-convert');
         buttonEl.style.display =
           google.colab.kernel.accessAllowed ? 'block' : 'none';
 
         async function convertToInteractive(key) {
-          const element = document.querySelector('#df-a2596542-776f-4d48-8bf8-0310fe8705b8');
+          const element = document.querySelector('#df-a8852990-78da-4d2f-b312-dacce5235489');
           const dataTable =
             await google.colab.kernel.invokeFunction('convertToInteractive',
                                                      [key], {});
@@ -14897,7 +15501,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[10]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-python"><pre><span></span><span class="n">d</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
@@ -14921,13 +15525,13 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-OutputArea-child">
 
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[&nbsp;]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[10]:</div>
 
 
 
 <div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html">
 
-  <div id="df-199d9465-b01e-471e-88cc-4e3666edc989">
+  <div id="df-ec6214cc-a649-4f43-9638-832a6d69ba17">
     <div class="colab-df-container">
       <div>
 <style scoped>
@@ -15000,7 +15604,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
   </tbody>
 </table>
 </div>
-      <button class="colab-df-convert" onclick="convertToInteractive('df-199d9465-b01e-471e-88cc-4e3666edc989')"
+      <button class="colab-df-convert" onclick="convertToInteractive('df-ec6214cc-a649-4f43-9638-832a6d69ba17')"
               title="Convert this dataframe to an interactive table."
               style="display:none;">
         
@@ -15051,12 +15655,12 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 
       <script>
         const buttonEl =
-          document.querySelector('#df-199d9465-b01e-471e-88cc-4e3666edc989 button.colab-df-convert');
+          document.querySelector('#df-ec6214cc-a649-4f43-9638-832a6d69ba17 button.colab-df-convert');
         buttonEl.style.display =
           google.colab.kernel.accessAllowed ? 'block' : 'none';
 
         async function convertToInteractive(key) {
-          const element = document.querySelector('#df-199d9465-b01e-471e-88cc-4e3666edc989');
+          const element = document.querySelector('#df-ec6214cc-a649-4f43-9638-832a6d69ba17');
           const dataTable =
             await google.colab.kernel.invokeFunction('convertToInteractive',
                                                      [key], {});
@@ -15089,7 +15693,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[11]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-python"><pre><span></span><span class="n">both_ppp</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">left</span><span class="o">=</span><span class="n">obs_ppp</span><span class="p">,</span> <span class="n">right</span><span class="o">=</span><span class="n">bfd</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="s2">"num"</span><span class="p">)</span>
@@ -15111,7 +15715,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-OutputArea-child">
 
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[&nbsp;]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[11]:</div>
 
 
 
@@ -15160,7 +15764,7 @@ class="
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[12]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-python"><pre><span></span><span class="n">benford</span> <span class="o">=</span> <span class="n">bfd</span><span class="p">[</span><span class="s1">'benford'</span><span class="p">]</span> <span class="o">*</span> <span class="nb">sum</span><span class="p">(</span><span class="n">ppp</span><span class="p">)</span>
@@ -15212,7 +15816,7 @@ p-value: 0.0
 <ul>
 <li>For instance, it may be that regulations or rules regarding loan issuances tend to favor loans of a certain size beginning with the digit 2. </li>
 <li>PPP loans were also legislated and issued within a short timeframe in order to respond quickly to the pandemic -- it therefore could also be that this led to an irregular pattern of loan amounts. </li>
-<li>PPP loans have also been plagued with stories of fraud, which may also lead to systematic deviations. </li>
+<li>PPP loans have also been plagued with stories of <a href="https://www.npr.org/2023/01/09/1145040599/ppp-loan-forgiveness">fraud</a> and <a href="https://www.wsj.com/articles/house-panel-criticizes-lack-of-oversight-on-ppp-loans-11598981252">lack of oversight</a>, which may also lead to systematic deviations. </li>
 </ul>
 <p>However, without further investigation, we cannot draw any such cause and effect conclusions.</p>
 
