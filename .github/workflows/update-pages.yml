@@ -24,7 +24,7 @@ jobs:
 
     - name: Run Script and Update Notebooks
       run: |
-        jupyter nbconvert --execute --to html notebooks/actions_test.ipynb
+        jupyter nbconvert --execute --output-dir='notebooks/../' --to html notebooks/actions_test.ipynb
 
     - name: Commit and Push Changes
       run: |
