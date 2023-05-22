@@ -24,12 +24,12 @@ jobs:
 
     - name: Run Script and Update Notebooks
       run: |
-        jupyter nbconvert --execute --to html notebooks/earthquakes_demo.ipynb
+        jupyter nbconvert --execute --to html notebooks/actions_test.ipynb
 
     - name: Commit and Push Changes
       run: |
         git config --local user.email "actions@github.com"
         git config --local user.name "GitHub Actions"
-        git add earthquakes_demo.html
+        git add actions_test.html
         git commit -m "Updated html pages"
         git push origin main
