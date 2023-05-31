@@ -13,7 +13,9 @@
 
  - **BodyMeasures.csv**: Laboratory body measurements taken from 2017-2018. *[Source](https://wwwn.cdc.gov/nchs/nhanes/search/datapage.aspx?Component=Examination&CycleBeginYear=2017), [Codebook](https://wwwn.cdc.gov/Nchs/Nhanes/2017-2018/BMX_J.htm)*
  - **Fish.csv**: Growth data from the Redfish Lake Idaho Sockeye Salmon captive broodstock study from 2000-2010. *[Source](https://www.webapps.nwfsc.noaa.gov/apex/parrdata/inventory/tables/table/redfish_lake_growth_data), [Codebook](https://www.fisheries.noaa.gov/inport/item/56820)*
+ -  **OlympicAllAround.csv** Olympic artistic gymnastics all-around event data for men. Years 2020, 2016 and 2012. *[Source](http://www.olympedia.org/event_names)*
  - **OlympicFloor.csv**: Olympic artistic gymnastics floor exercise data for both genders. Years 2020, 2016 and 2012. *[Source](http://www.olympedia.org/event_names)*
+
 
 ### Lognormal
 
@@ -55,6 +57,7 @@
  - **Fish.csv**: From the Northwest Fisheries Science Center (NWFSC), through NOAA
  - **Insurance.csv**: From the Center for Medicare and Medicaid Services (CMS)
  - **LengthOfStay.csv**: From Microsoft Machine Learning Services
+ - **OlympicAllAround.csv** From Olympedia.org
  - **OlympicFloor.csv**: From Olympedia.org
  - **Population.csv**: From the US Census Bureau
  - **Reddit.csv**: From Reddit, scraped with Python Reddit API Wrapper (PRAW)
