@@ -1,6 +1,8 @@
 ---
 title: "probasets"
 links:
+  - label: Actuarial
+    url: "https://mshsu.github.io/probasets/actuarial_demo.html"
   - label: Bitcoin
     url: "https://mshsu.github.io/probasets/bitcoin_demo.html"
   - label: Blotter
@@ -19,6 +21,10 @@ links:
     url: "https://mshsu.github.io/probasets/fish_demo.html"
   - label: LogNormal
     url: "https://mshsu.github.io/probasets/lognormal_demo.html"
+  - label: Olympics
+    url: "https://mshsu.github.io/probasets/olympics_demo.html"
+  - label: Olympics (Men's All-Around)
+    url: "https://mshsu.github.io/probasets/olympic_allaround_demo.html"
   - label: Population
     url: "https://mshsu.github.io/probasets/population_demo.html"
   - label: PPP Loans
@@ -28,5 +34,5 @@ output: postcards::jolla
 
 Applying probability distributions to real life data.
 
-*Made under the guidance of Dr. Kevin Ross. Not a rigorous analysis (ie. generally no chi-square tests for goodness of fit).*
+*Made under the guidance of Dr. Kevin Ross. Not a rigorous analysis (ie. generally no tests for goodness of fit).*
 
